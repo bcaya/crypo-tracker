@@ -20,11 +20,19 @@ class Api::CoinsController < ApplicationController
   end
 
   def show
+    render json: @coin
   end
 
   def update
+    current_user.watched_coins.find_by(coin_id: @coin.id).destroy
   end
 
   def destroy
+    @coin.destroy
+  end
+
+  private 
+  def set_coin
+    @coin = Coin.find(params[:id])
   end
 end
