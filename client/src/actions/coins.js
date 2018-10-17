@@ -9,3 +9,11 @@ export const addCoin = (coin) => {
       .then( ({ data, headers }) => dispatch({ type: ADD_COIN, coin: data, headers}))
   }
 }
+
+export const getCoins = () => {
+  return (dispatch) => {
+    axios.get('/api/coins')
+      .then( ({ data, headers }) => dispatch({ type: COINS, coins: data, headers}))
+  }
+}
+
