@@ -17,3 +17,9 @@ export const getCoins = () => {
   }
 }
 
+export const removeCoin = (id) => {
+  return (dispatch) => {
+    axios.put(`/api/coins/${id}`)
+      .then( ({ headers }) => dispatch({ type: REMOVE_COIN, id, headers}))
+  }
+}
