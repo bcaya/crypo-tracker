@@ -10,7 +10,7 @@ class Coin < ApplicationRecord
 
       coin_params = {
         name: match[:name],
-        symbol: match[:symbol]
+        symbol: match[:symbol],
         cmc_id: match[:id]
       }
 
